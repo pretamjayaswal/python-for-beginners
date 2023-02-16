@@ -1,8 +1,26 @@
-import re
+# Python program to show the order
+# in which methods are resolved
 
-string = u"2 men 3 dogs"
+class God:
+	pass
 
-x = re.findall('\d',string)
+class A(God):
+	def rk(self):
+		print(" In class A")
+class B(God):
+	def rk(self):
+		print(" In class B")
+class D:
+	def rk(self):
+		print(" In class D")
 
-print(x)
-print(string)
+# classes ordering
+class C(A, B):
+	def __init__(self):
+		print("Constructor C")
+
+r = C()
+
+# it prints the lookup order
+print(C.__mro__)
+print(C.mro())
